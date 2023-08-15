@@ -1,14 +1,26 @@
-import random
+import numpy as np
 
-def Odd(nums):
-    odd_num=[]
-    for num in nums:
-        if (len(str(num))==3 or len(str(num))==4) and num%2 !=0:
-            odd_num.append(num)
+row = int(input("Enter num of rows "))
+col = int(input("Enter num of col "))
 
-    return odd_num
+arr= np.zeros((row,col),dtype = int)
 
-nums = [random.randint(1,1000) for _ in range(20)]
+for i in range(row):
+    for j in range(col):
+        arr[i][j] = int(input(f"Enter element ({i},{j}) : "))
+    
+print("Array is \n",arr)
+    
+reverse_arr = np.flip(arr) 
+print("\n\nReversed Array is \n",reverse_arr)
 
-odd_num = Odd(nums)
-print(odd_num)
+principal_dig = np.diag(arr)
+print("\n\nPrincipal digonal of Array is \n",principal_dig)
+
+ass_arr = np.sort(arr, axis= None)
+ass_arr = ass_arr.reshape(arr.shape)
+print("\n\nass Array is \n",ass_arr)
+
+diss_arr = np.sort(arr, axis= None)[::-1]
+diss_arr = diss_arr.reshape(arr.shape)
+print("\n\nass Array is \n",diss_arr)
